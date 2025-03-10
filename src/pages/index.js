@@ -5,9 +5,9 @@ export default function Home() {
     <>
       <div>Hello world! This is Enrique Matta's page. It's bland, just like I like it.</div>
       <div id="links">
-        <a href="blog.matta.dev">Blog</a> <br />
-        <a href="github.com/ematta">GITHUB</a> <br />
-        <a href="linkedin.com/in/enriquematta">Linkedin</a> <br />
+        <a href="https://blog.matta.dev">Blog</a> <br />
+        <a href="https://github.com/ematta">GITHUB</a> <br />
+        <a href="https://linkedin.com/in/enriquematta">Linkedin</a> <br />
       </div>
     </>
   )
