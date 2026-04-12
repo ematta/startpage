@@ -17,24 +17,39 @@
                 padding: 0;
             }
             :root {
-                --bg: #090911;
-                --surface: rgba(255, 255, 255, 0.035);
-                --surface-hover: rgba(129, 140, 248, 0.09);
-                --border: rgba(129, 140, 248, 0.11);
-                --border-hover: rgba(129, 140, 248, 0.38);
-                --indigo: #818cf8;
-                --cyan: #67e8f9;
-                --violet: #a78bfa;
-                --text: #e2e8f0;
-                --muted: #4a5568;
-                --glow: 0 0 28px rgba(129, 140, 248, 0.18);
+                --bg: #eaf6ff;
+                --surface: rgba(255, 255, 255, 0.72);
+                --surface-hover: rgba(186, 230, 253, 0.65);
+                --border: rgba(56, 189, 248, 0.18);
+                --border-hover: rgba(14, 165, 233, 0.42);
+                --sky: #38bdf8;
+                --cyan: #0ea5e9;
+                --text: #12324a;
+                --muted: #5f7f98;
+                --glow: 0 20px 42px rgba(56, 189, 248, 0.22);
             }
             html,
             body {
                 min-height: 100vh;
             }
             body {
-                background: var(--bg);
+                background:
+                    radial-gradient(
+                        circle at top right,
+                        rgba(125, 211, 252, 0.48) 0%,
+                        transparent 38%
+                    ),
+                    radial-gradient(
+                        circle at bottom left,
+                        rgba(186, 230, 253, 0.78) 0%,
+                        transparent 42%
+                    ),
+                    linear-gradient(
+                        180deg,
+                        #f9fdff 0%,
+                        var(--bg) 56%,
+                        #dbeffd 100%
+                    );
                 color: var(--text);
                 font-family:
                     "Inter",
@@ -63,7 +78,7 @@
                 height: 560px;
                 background: radial-gradient(
                     circle,
-                    rgba(99, 102, 241, 0.18) 0%,
+                    rgba(56, 189, 248, 0.2) 0%,
                     transparent 70%
                 );
                 top: -180px;
@@ -75,7 +90,7 @@
                 height: 440px;
                 background: radial-gradient(
                     circle,
-                    rgba(6, 182, 212, 0.12) 0%,
+                    rgba(14, 165, 233, 0.16) 0%,
                     transparent 70%
                 );
                 bottom: -120px;
@@ -87,7 +102,7 @@
                 height: 320px;
                 background: radial-gradient(
                     circle,
-                    rgba(167, 139, 250, 0.1) 0%,
+                    rgba(186, 230, 253, 0.32) 0%,
                     transparent 70%
                 );
                 top: 50%;
@@ -133,12 +148,12 @@
                 inset: 0;
                 background-image:
                     linear-gradient(
-                        rgba(129, 140, 248, 0.025) 1px,
+                        rgba(14, 165, 233, 0.05) 1px,
                         transparent 1px
                     ),
                     linear-gradient(
                         90deg,
-                        rgba(129, 140, 248, 0.025) 1px,
+                        rgba(14, 165, 233, 0.05) 1px,
                         transparent 1px
                     );
                 background-size: 52px 52px;
@@ -153,7 +168,7 @@
                 z-index: 0;
                 background: radial-gradient(
                     600px circle at var(--mx, 50%) var(--my, 50%),
-                    rgba(129, 140, 248, 0.05) 0%,
+                    rgba(56, 189, 248, 0.14) 0%,
                     transparent 60%
                 );
                 transition: background 0.1s ease;
@@ -169,7 +184,7 @@
             .monogram {
                 width: 54px;
                 height: 54px;
-                background: linear-gradient(135deg, var(--indigo), var(--cyan));
+                background: linear-gradient(135deg, var(--sky), var(--cyan));
                 border-radius: 14px;
                 display: flex;
                 align-items: center;
@@ -177,17 +192,18 @@
                 font-family: "JetBrains Mono", monospace;
                 font-weight: 500;
                 font-size: 1.15rem;
-                color: #090911;
+                color: #f8fcff;
                 margin-bottom: 2rem;
                 position: relative;
                 animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+                box-shadow: 0 18px 36px rgba(56, 189, 248, 0.22);
             }
             .monogram::after {
                 content: "";
                 position: absolute;
                 inset: -2px;
                 border-radius: 16px;
-                background: linear-gradient(135deg, var(--indigo), var(--cyan));
+                background: linear-gradient(135deg, var(--sky), var(--cyan));
                 z-index: -1;
                 filter: blur(12px);
                 opacity: 0.55;
@@ -221,11 +237,11 @@
                 font-size: 1.05rem;
                 font-weight: 300;
                 line-height: 1.8;
-                color: #94a3b8;
+                color: #5f7f98;
             }
             .greeting .name {
                 font-weight: 500;
-                background: linear-gradient(90deg, var(--indigo), var(--cyan));
+                background: linear-gradient(90deg, var(--sky), var(--cyan));
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
@@ -253,12 +269,13 @@
                 align-items: center;
                 justify-content: space-between;
                 text-decoration: none;
-                color: #cbd5e1;
+                color: #1d3d57;
                 padding: 0.8rem 1.1rem;
                 border-radius: 10px;
                 border: 1px solid var(--border);
                 background: var(--surface);
                 backdrop-filter: blur(8px);
+                box-shadow: 0 14px 28px rgba(148, 196, 224, 0.16);
                 transition:
                     background 0.2s ease,
                     border-color 0.2s ease,
@@ -286,7 +303,7 @@
             .link:hover {
                 background: var(--surface-hover);
                 border-color: var(--border-hover);
-                color: var(--indigo);
+                color: var(--cyan);
                 transform: translateX(5px);
                 box-shadow: var(--glow);
             }
@@ -309,8 +326,8 @@
                     box-shadow 0.2s ease;
             }
             .link:hover .link-dot {
-                background: var(--indigo);
-                box-shadow: 0 0 7px rgba(129, 140, 248, 0.9);
+                background: var(--cyan);
+                box-shadow: 0 0 10px rgba(14, 165, 233, 0.35);
             }
             .link-arrow {
                 font-size: 0.85rem;
@@ -321,7 +338,7 @@
                 line-height: 1;
             }
             .link:hover .link-arrow {
-                color: var(--indigo);
+                color: var(--cyan);
                 transform: translateX(3px);
             }
             /* ── Footer ─────────────────────────────────────────── */
