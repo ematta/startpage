@@ -44,6 +44,3 @@ status: ## Show matching containers
 
 clean: down ## Remove the image after stopping the container
 	@$(DOCKER) image rm $(IMAGE_NAME) >/dev/null 2>&1 || true
-
-test: ## Verify the Makefile expands to the expected docker commands
-	sh tests/test_makefile.sh

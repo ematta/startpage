@@ -180,29 +180,32 @@
                 max-width: 400px;
                 width: 100%;
             }
-            /* ── Monogram badge ─────────────────────────────────── */
+            /* ── Portrait badge ─────────────────────────────────── */
             .monogram {
-                width: 54px;
-                height: 54px;
-                background: linear-gradient(135deg, var(--sky), var(--cyan));
-                border-radius: 14px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-family: "JetBrains Mono", monospace;
-                font-weight: 500;
-                font-size: 1.15rem;
-                color: #f8fcff;
+                width: 68px;
+                height: 68px;
+                border-radius: 50%;
+                display: inline-block;
+                overflow: hidden;
                 margin-bottom: 2rem;
                 position: relative;
                 animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
                 box-shadow: 0 18px 36px rgba(56, 189, 248, 0.22);
+                border: 2px solid rgba(248, 252, 255, 0.9);
+                background: linear-gradient(135deg, var(--sky), var(--cyan));
+            }
+            .monogram img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                object-fit: cover;
+                object-position: center 22%;
             }
             .monogram::after {
                 content: "";
                 position: absolute;
                 inset: -2px;
-                border-radius: 16px;
+                border-radius: 50%;
                 background: linear-gradient(135deg, var(--sky), var(--cyan));
                 z-index: -1;
                 filter: blur(12px);
@@ -382,7 +385,9 @@
         <div class="grid"></div>
         <div class="spotlight" id="spotlight"></div>
         <main class="container">
-            <div class="monogram">EM</div>
+            <div class="monogram">
+                <img src="me.jpeg" alt="Portrait of Enrique Matta" />
+            </div>
             <div class="greeting">
                 <p>
                     Hello friends! This is
@@ -393,7 +398,7 @@
             <nav class="links">
                 <a href="https://blog.matta.dev" class="link">
                     <span class="link-label"
-                        ><span class="link-dot"></span>Blog</span
+                        ><span class="link-dot"></span>Blog (coming soon)</span
                     >
                     <span class="link-arrow">→</span>
                 </a>
