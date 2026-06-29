@@ -1,5 +1,26 @@
 const spotlight = document.getElementById("spotlight");
 const headline = document.getElementById("headline-text");
+const themeSelect = document.getElementById("theme-select");
+
+const initThemeSelect = () => {
+    if (!themeSelect) {
+        return;
+    }
+
+    const current =
+        document.documentElement.getAttribute("data-theme") || "terminal";
+    themeSelect.value = current;
+
+    themeSelect.addEventListener("change", () => {
+        const theme = themeSelect.value;
+        document.documentElement.setAttribute("data-theme", theme);
+        try {
+            localStorage.setItem("theme", theme);
+        } catch (e) {}
+    });
+};
+
+initThemeSelect();
 
 const fitHeadline = () => {
     if (!headline) {

@@ -1,4 +1,4 @@
-<html lang="en" data-qb-installed="true">
+<html lang="en" data-theme="terminal" data-qb-installed="true">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -9,8 +9,29 @@
         <title>Enrique Matta</title>
         <link rel="icon" href="favicon.ico" />
         <link rel="stylesheet" href="css/index.css" />
+        <script>
+            (function () {
+                try {
+                    var t = localStorage.getItem("theme");
+                    document.documentElement.setAttribute(
+                        "data-theme",
+                        t || "terminal",
+                    );
+                } catch (e) {}
+            })();
+        </script>
     </head>
     <body>
+        <select
+            id="theme-select"
+            class="theme-select"
+            aria-label="Select theme"
+        >
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="papyrus">Papyrus</option>
+            <option value="terminal">Terminal</option>
+        </select>
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
         <div class="blob blob-3"></div>
@@ -35,6 +56,12 @@
                     >
                     <span class="link-arrow">→</span>
                 </a>
+                <a href="pages.html" class="link">
+                    <span class="link-label"
+                        ><span class="link-dot"></span>Papers</span
+                    >
+                    <span class="link-arrow">→</span>
+                </a>
                 <a href="https://github.com/ematta" class="link">
                     <span class="link-label"
                         ><span class="link-dot"></span>GitHub</span
@@ -44,12 +71,6 @@
                 <a href="https://linkedin.com/in/enriquematta" class="link">
                     <span class="link-label"
                         ><span class="link-dot"></span>LinkedIn</span
-                    >
-                    <span class="link-arrow">→</span>
-                </a>
-                <a href="https://brainstorm.matta.dev" class="link">
-                    <span class="link-label"
-                        ><span class="link-dot"></span>Brainstorm</span
                     >
                     <span class="link-arrow">→</span>
                 </a>
@@ -63,18 +84,6 @@
                 <a href="https://mindmap.matta.dev" class="link">
                     <span class="link-label"
                         ><span class="link-dot"></span>Mindmap</span
-                    >
-                    <span class="link-arrow">→</span>
-                </a>
-                <a href="pages.html" class="link">
-                    <span class="link-label"
-                        ><span class="link-dot"></span>Papers</span
-                    >
-                    <span class="link-arrow">→</span>
-                </a>
-                <a href="https://swaddle.dev" class="link">
-                    <span class="link-label"
-                        ><span class="link-dot"></span>Swaddle.dev</span
                     >
                     <span class="link-arrow">→</span>
                 </a>
