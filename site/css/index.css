@@ -148,7 +148,7 @@ body {
     justify-content: center;
     min-height: 100vh;
     padding: 2rem;
-    overflow: hidden;
+    overflow-x: hidden;
     position: relative;
     transition:
         background 0.3s ease,
@@ -301,7 +301,7 @@ body {
 .container {
     position: relative;
     z-index: 1;
-    max-width: 40rem;
+    max-width: 48rem;
     width: 100%;
 }
 
@@ -312,14 +312,6 @@ body {
     margin-bottom: 2.25rem;
     min-width: 0;
     animation: fadeUp 0.6s ease 0.1s both;
-}
-
-.hero-portrait {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    flex: 0 0 auto;
 }
 
 /* Portrait badge */
@@ -411,11 +403,26 @@ body {
     animation: fadeUp 0.6s ease 0.15s both;
 }
 
-/* Links */
+/* Link sections and compact terminal tiles */
+.link-section {
+    margin-bottom: 1.35rem;
+    animation: fadeUp 0.55s ease both;
+}
+
+.section-title {
+    margin: 0 0 0.65rem;
+    color: var(--muted);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
 .links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem;
 }
 
 .link {
@@ -424,7 +431,8 @@ body {
     justify-content: space-between;
     text-decoration: none;
     color: var(--text);
-    padding: 0.8rem 1.1rem;
+    min-height: 3.15rem;
+    padding: 0.7rem 0.85rem;
     border-radius: var(--radius);
     border: 1px solid var(--border);
     background: var(--surface);
@@ -437,35 +445,20 @@ body {
         color 0.2s ease,
         transform 0.2s ease,
         box-shadow 0.2s ease;
-    will-change: transform;
     animation: fadeUp 0.55s ease both;
 }
 
-.link:nth-child(1) {
-    animation-delay: 0.2s;
-}
-
-.link:nth-child(2) {
-    animation-delay: 0.25s;
-}
-
-.link:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-.link:nth-child(4) {
-    animation-delay: 0.35s;
-}
-
-.link:nth-child(5) {
-    animation-delay: 0.4s;
+.link:focus-visible,
+.theme-select:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
 }
 
 .link:hover {
     background: var(--surface-hover);
     border-color: var(--border-hover);
     color: var(--accent);
-    transform: translateX(5px);
+    transform: translateY(-2px);
     box-shadow: var(--glow);
 }
 
@@ -476,6 +469,16 @@ body {
     font-family: "JetBrains Mono", monospace;
     font-size: 0.875rem;
     letter-spacing: 0.01em;
+    min-width: 0;
+}
+
+.link-detail {
+    color: var(--muted);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .link-dot {
@@ -508,34 +511,8 @@ body {
     transform: translateX(3px);
 }
 
-.social-icons {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-    justify-content: center;
-    animation: fadeUp 0.55s ease 0.15s both;
-}
-
-.social-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    opacity: 0.65;
-    filter: drop-shadow(0 0 3px var(--accent));
-}
-
-.social-icon:hover {
-    opacity: 1;
-    transform: scale(1.15);
-    filter: drop-shadow(0 0 4px var(--accent));
-}
-
-.social-icon img {
-    width: 40px;
-    height: 40px;
-    display: block;
+.school-section {
+    margin-bottom: 0;
 }
 
 /* Footer */
@@ -611,13 +588,18 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
     [data-theme="terminal"] body::after {
         animation: none;
     }
-}
-
-[data-theme="terminal"] .social-icon img {
-    filter: grayscale(1) brightness(0.85);
 }
 
 @media (max-width: 640px) {
@@ -627,6 +609,12 @@ body {
 
     .hero {
         gap: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .links {
+        grid-template-columns: 1fr;
     }
 }
 
