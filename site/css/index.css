@@ -515,6 +515,18 @@ body {
     margin-bottom: 0;
 }
 
+.school-name {
+    margin: -0.15rem 0 0.65rem;
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+.school-name span {
+    margin-left: 0.35rem;
+    color: var(--muted);
+    font-size: 0.78rem;
+}
+
 /* Footer */
 .footer {
     margin-top: 1.75rem;
